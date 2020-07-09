@@ -32,14 +32,59 @@ var 당첨숫자들 = 셔플.slice(0,6);
 
 var 결과창 = document.getElementById('결과창');
 
-for(var i=0; i<당첨숫자들.length; i++){
-    setTimeout(function 비동기콜백함수(){
-        var 공 = document.createElement("div");
-        공.textContent = 당첨숫자들[i];
-        결과창.appendChild(공);
-    }, 1000); // 밀리초 단위
+function 공스타일 (숫자, 결과창){
+    var 매개공 = document.createElement("div");
+    매개공.textContent = 숫자;
+    매개공.style.display = 'inline-block';
+    매개공.style.border = '1px solid black';
+    매개공.style.borderRadius = '10px';
+    매개공.style.width = '20px';
+    매개공.style.hegiht = '20px';
+    매개공.style.textAlign = 'center';
+    매개공.style.marginRight = '10px';
+    매개공.className = '공아이디' + 숫자;
+    var 배경색;
+    if(숫자 <= 10){
+        배경색 = 'red';
+    }
+    else if(숫자 <=20){
+        배경색 = 'orange';
+    }
+    else if(숫자 <= 30){
+        배경색 = 'yellow';
+    }
+    else if(숫자 <= 40){
+        배경색 = 'blue';
+    }
+    else{
+        배경색 = 'green';
+    }
+    
+    매개공.style.backgroundColor = 배경색;
+    결과창.appendChild(매개공);
 }
-var 보너스칸 = document.getElementsByClassName('보너스칸')[0];
-var 보너스공 = document.createElement('div');
-보너스공.textContent = 보너스;
-보너스칸.appendChild(보너스공);
+
+setTimeout(function 비동기콜백함수(){
+        공스타일(당첨숫자들[0], 결과창);
+    }, 1000); // 밀리초 단위
+
+    setTimeout(function 비동기콜백함수(){
+        공스타일(당첨숫자들[1], 결과창);
+    }, 2000); // 밀리초 단위
+    setTimeout(function 비동기콜백함수(){
+        공스타일(당첨숫자들[2], 결과창);
+    }, 3000); // 밀리초 단위
+    setTimeout(function 비동기콜백함수(){
+        공스타일(당첨숫자들[3], 결과창);
+    }, 4000); // 밀리초 단위
+    setTimeout(function 비동기콜백함수(){
+        공스타일(당첨숫자들[4], 결과창);
+    }, 5000); // 밀리초 단위
+    setTimeout(function 비동기콜백함수(){
+        공스타일(당첨숫자들[5], 결과창);
+    }, 6000); // 밀리초 단위
+
+    setTimeout(function 비동기콜백함수(){
+    var 보너스칸 = document.getElementsByClassName('보너스칸')[0];
+    공스타일(보너스, 보너스칸);
+    }, 7000);
