@@ -8,10 +8,21 @@
                 border-collapse: collapse;
             }
             td{
-                    border : 1px solid black;
+                    border : 1px solid #bbb;
                     width : 20px;
+                    line-height: 20px;
                     height : 20px;
                     text-align: center;
+                    background: black;
+            }
+            td.opened {
+                background-color: white;
+            }
+            td.flag{
+                background: red;
+            }
+            td.question{
+                background: orange;
             }
         </style>
     </head>
@@ -28,6 +39,7 @@
             </thead>
             <tbody></tbody>
         </table>
+        <div id = "result"></div>
         <script src="findmine.js"></script>
     </body>
 </html>
