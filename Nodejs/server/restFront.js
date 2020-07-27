@@ -39,11 +39,12 @@ function getUser() {
                     xhr.onload = function () {
                         if (xhr.status === 200) {
                             console.log(xhr.responseText);
+                            getUser();
                         } else {
                             console.error(xhr.responseText);
                         }
                     };
-                    xhr.open('DELETE', '/user/' + key);
+                    xhr.open('DELETE', '/users/' + key);
                     xhr.send();
                 });
                 userDiv.appendChild(span);
@@ -55,7 +56,7 @@ function getUser() {
             console.error(xhr.responseText);
         }
     };
-    xhr.open('GET', '/users/'); // users란 자원을 가져오는 것을 요청
+    xhr.open('GET', '/users'); // users란 자원을 가져오는 것을 요청
     xhr.send();
 }
 
@@ -69,7 +70,7 @@ document.getElementById('form').addEventListener('submit', (e) => {
     }
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
-        if ([200, 201].includes(xhr.status)) {
+        if ([200, 201].indexOf(xhr.status) > -1) {
             // 응답이 성공적으로 오면 ... indexOf > 익스플로어
             console.log(xhr.responseText);
             getUser();
@@ -79,6 +80,6 @@ document.getElementById('form').addEventListener('submit', (e) => {
     };
     xhr.open('POST', '/users'); // 서버에 게시 요청 함
     xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify({ name, name }));
+    xhr.send(JSON.stringify({ name: name })); // 본문을 보냄
     e.target.username.value = '';
 });
