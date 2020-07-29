@@ -1,0 +1,57 @@
+extends lay.pug
+block content
+    button(type='submit') 전송
+        if variable
+            div 참입니다.
+        else
+            div 거짓입니다.
+        for i in fruits
+            div= i
+        p
+            | 안녕하세요
+            | 여러 줄을 입력합니다
+            br
+            | 태그도 중간에 넣을 수 있습니다.
+block script
+    script.
+            var message = 'pug';
+            alert(message);
+            
+doctype html
+html
+    head
+        -const title = '익스프레스' // render 안에서 선언 가능
+        -const title2 = '안녕'
+        -const variable = true
+        title= title + ' ' + title2 + title3
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        style.
+            p {
+                color: red;
+            }
+    body
+        //웹페이지 중복되는 부분은 include나 layout으로 해결가능
+        include header
+        // div#zerocho(width=500) id는 zerocho구나 div는 생략가능
+        // #zerocho(width=500)
+        // <div id='zerocho" width="500"></div>
+        // span.express class 는.이구나
+        button(type='submit') 전송
+        // <button type='submit'>전송</button>
+        if variable
+            div 참입니다.
+        else
+            div 거짓입니다.
+        for i in fruits
+            div= i
+        p
+            | 안녕하세요
+            | 여러 줄을 입력합니다
+            br
+            | 태그도 중간에 넣을 수 있습니다.
+            // <p> 안녕하세요. 여러줄을 입력합니다 <br/>...
+        include footer
+        script.
+            var message = 'pug';
+            alert(message);
+    //pug는 들여쓰기로 부모자식 태그구분함. 탭이든 스페이스 상관은 없음 닫는 테그 없어도됨

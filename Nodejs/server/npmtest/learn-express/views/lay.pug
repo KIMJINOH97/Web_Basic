@@ -1,0 +1,19 @@
+doctype html
+html
+    head
+        -const title = '익스프레스' // render 안에서 선언 가능
+        -const title2 = '안녕'
+        -const variable = true
+        title= title + ' ' + title2 + title3
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        style.
+            p {
+                color: red;
+            }
+    body
+        include header
+        block content
+        include footer
+        block script
+            script.
+                console.log('hi')

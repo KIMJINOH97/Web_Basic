@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('../app2');
 var debug = require('debug')('learn-express:server');
 var http = require('http');
 
@@ -12,7 +12,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3000'); // process.env.PORT는 사용자가 입력한포트
 app.set('port', port);
 
 /**
